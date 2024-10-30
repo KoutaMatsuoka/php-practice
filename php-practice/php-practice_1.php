@@ -1,41 +1,125 @@
 <?php
 // Q1 変数と文字列
+$name = "松岡";
+$newName = "私の名前は「" .$name. "」です。";
 
+echo $newName;
 
 // Q2 四則演算
-
+$x = 5;
+$y = 4;
+$num = $x * $y;
+var_dump($num);
+var_dump($num/2);
 
 // Q3 日付操作
+date_default_timezone_set('Asia/Tokyo');
 
+$today = date("Y年m月d日 H時i分s秒");
+$time = "現在時刻は、" .$today. " です。";
+
+echo $time;
 
 // Q4 条件分岐-1 if文
+$device = "Linux";
 
+if ($device === "Windows") {
+    echo '使用OSは、windowsです。';
+}if ($device === "mac") {
+    echo '使用OSは、macです。';
+}else {
+    echo 'どちらでもありません。';
+}
 
 // Q5 条件分岐-2 三項演算子
+$age = 20;
+$message = ($age > 18) ? "成人です。" :" 未成年です。";
 
+echo $message;
 
 // Q6 配列
+$Kanto = ["東京都" , "神奈川県" , "埼玉県" , "千葉県" , "茨城県" , "栃木県" , "群馬県"];
 
+echo "".$Kanto[2]."と".$Kanto[3]."は関東地方の都道府県です。";
 
 // Q7 連想配列-1
+$Kanto2 = ["東京都" => "新宿区" , "神奈川県" => "横浜市" , "埼玉県" => "さいたま市" , "千葉県" => "千葉市" , "茨城県" => "水戸市" , "栃木県" => "宇都宮市" , "群馬県" => "前橋市"];
 
+foreach ($Kanto2 as $Capital) {
+    echo "" .$Capital. "\n";
+}
 
 // Q8 連想配列-2
-
+$i = 0;
+foreach ($Kanto2 as $Prefecture => $Capital) {
+    if($i < 2){
+        $i++;
+        continue;
+    }
+    echo "" .$Prefecture."の県庁所在地は、".$Capital."です。";
+    break;
+}
 
 // Q9 連想配列-3
-
+$CapitalArea = [ "東京都" => "新宿区" , "神奈川県" => "横浜市" , "埼玉県" => "さいたま市" , "千葉県" => "千葉市" , "茨城県" => "水戸市" , "栃木県" => "宇都宮市" , "群馬県" => "前橋市" , "静岡県" => "静岡市" , "山梨県" => "甲府市" ];
+$i = 0;
+foreach ($CapitalArea as $Prefecture => $Capital) {
+    if($i < 7){
+        $i++;
+        echo "" .$Prefecture."の県庁所在地は、".$Capital."です。\n";
+    }else{
+    echo "".$Prefecture."は関東地方ではありません。\n";}
+}
 
 // Q10 関数-1
+function hello($name)
+{
+    echo "".$name."さん、こんにちは。\n";
+}
 
+hello("金谷");
+hello("安藤");
 
 // Q11 関数-2
-
+function calcTaxInPrice($price)
+{
+    $taxInPrice = $price*1.1;
+    echo "".$price."円の商品の税込価格は".$taxInPrice."円です。";
+}
+calcTaxInPrice(1000);
 
 // Q12 関数とif文
-
+function distinguishNum($number){
+    if($number % 2 == 0){
+        echo "".$number."は偶数です。\n";
+    }else{
+        echo "".$number."は奇数です。\n";
+    }
+}
+distinguishNum(11);
+distinguishNum(24);
 
 // Q13 関数とswitch文
-
+function evaluateGrate($grade = "E"){
+    switch ($grade) {
+        case "A":
+            echo "合格です。\n";
+            break;
+        case "B":
+            echo "合格です。\n";
+            break;
+        case "C":
+            echo "合格ですが追加課題があります。\n";
+            break; 
+        case "D":
+            echo "不合格です。\n";
+            break;
+        default:
+            echo "判定不明です。講師に問い合わせてください。\n";
+            break;
+    }
+}
+evaluateGrate("B");
+evaluateGrate();
 
 ?>
