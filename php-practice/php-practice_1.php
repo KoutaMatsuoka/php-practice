@@ -38,37 +38,37 @@ $message = ($age > 18) ? "成人です。" :" 未成年です。";
 echo $message;
 
 // Q6 配列
-$Kanto = ["東京都" , "神奈川県" , "埼玉県" , "千葉県" , "茨城県" , "栃木県" , "群馬県"];
+$kanto = ["東京都" , "神奈川県" , "埼玉県" , "千葉県" , "茨城県" , "栃木県" , "群馬県"];
 
-echo "".$Kanto[2]."と".$Kanto[3]."は関東地方の都道府県です。";
+echo "".$kanto[2]."と".$kanto[3]."は関東地方の都道府県です。";
 
 // Q7 連想配列-1
-$Kanto2 = ["東京都" => "新宿区" , "神奈川県" => "横浜市" , "埼玉県" => "さいたま市" , "千葉県" => "千葉市" , "茨城県" => "水戸市" , "栃木県" => "宇都宮市" , "群馬県" => "前橋市"];
+$kanto2 = ["東京都" => "新宿区" , "神奈川県" => "横浜市" , "埼玉県" => "さいたま市" , "千葉県" => "千葉市" , "茨城県" => "水戸市" , "栃木県" => "宇都宮市" , "群馬県" => "前橋市"];
 
-foreach ($Kanto2 as $Capital) {
-    echo "" .$Capital. "\n";
+foreach ($kanto2 as $capital) {
+    echo "" .$capital. "\n";
 }
 
 // Q8 連想配列-2
 $i = 0;
-foreach ($Kanto2 as $Prefecture => $Capital) {
+foreach ($kanto2 as $prefecture => $capital) {
     if($i < 2){
         $i++;
         continue;
     }
-    echo "" .$Prefecture."の県庁所在地は、".$Capital."です。";
+    echo "" .$prefecture."の県庁所在地は、".$capital."です。";
     break;
 }
 
 // Q9 連想配列-3
-$CapitalArea = [ "東京都" => "新宿区" , "神奈川県" => "横浜市" , "埼玉県" => "さいたま市" , "千葉県" => "千葉市" , "茨城県" => "水戸市" , "栃木県" => "宇都宮市" , "群馬県" => "前橋市" , "静岡県" => "静岡市" , "山梨県" => "甲府市" ];
+$capitalArea = [ "東京都" => "新宿区" , "神奈川県" => "横浜市" , "埼玉県" => "さいたま市" , "千葉県" => "千葉市" , "茨城県" => "水戸市" , "栃木県" => "宇都宮市" , "群馬県" => "前橋市" , "静岡県" => "静岡市" , "山梨県" => "甲府市" ];
 $i = 0;
-foreach ($CapitalArea as $Prefecture => $Capital) {
+foreach ($capitalArea as $prefecture => $capital) {
     if($i < 7){
         $i++;
-        echo "" .$Prefecture."の県庁所在地は、".$Capital."です。\n";
+        echo "" .$prefecture."の県庁所在地は、".$capital."です。\n";
     }else{
-    echo "".$Prefecture."は関東地方ではありません。\n";}
+    echo "".$prefecture."は関東地方ではありません。\n";}
 }
 
 // Q10 関数-1
@@ -110,7 +110,7 @@ function evaluateGrate($grade = "E"){
             break;
         case "C":
             echo "合格ですが追加課題があります。\n";
-            break; 
+            break;
         case "D":
             echo "不合格です。\n";
             break;
