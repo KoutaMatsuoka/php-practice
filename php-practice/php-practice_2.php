@@ -1,23 +1,20 @@
 <?php
 // Q1 tic-tac問題
 function tic_tac($count = 0){
-    for ($i = 0; $i <= 100; $i++) {
-        if ($i === 0) {echo "1から100までのカウントを開始します\n\n";
+    for ($count = 0; $count <= 100; $count++) {
+        if ($count === 0) {echo "1から100までのカウントを開始します\n\n";
             continue;
-        }elseif ($i === 100) {
-            echo "tic-tac\n";
-            break;
-        }elseif ($i % 4 == 0 && $i % 5 == 0) {
+        }elseif ($count % 4 === 0 && $count % 5 === 0) {
             echo "tic-tac\n";
             continue;
-        }elseif ($i % 4 == 0) {
+        }elseif ($count % 4 === 0) {
             echo "tic\n";
             continue;
-        }elseif ($i % 5 == 0) {
+        }elseif ($count % 5 === 0) {
             echo "tac\n";
             continue;
         }
-        echo $i. "\n";
+        echo $count. "\n";
     }
 }
 
@@ -45,7 +42,7 @@ $personalInfos = [
 var_dump($personalInfos);
 
 //問題1
-echo $personalInfos[1]['name'].'の電話番号は'.$personalInfos[1]['tel'].'です。';
+echo $personalInfos[1]['name'].'の電話番号は'.$personalInfos[1]['tel']."です。\n";
 
 //問題2
 $count = 0;
@@ -54,13 +51,14 @@ foreach($personalInfos as $person){
     $count = $count + 1;
     echo $count.'番目の'.$person['name'].'のメールアドレスは'.$person['mail'].'で、電話番号は'.$person['tel']."です。\n";
 }
+unset($person);
 
 //問題3
 $ageList = [25, 30, 18];
-foreach($personalInfos as $x=>&$y){
-    $y['age']=$ageList[$x];
+foreach($personalInfos as $person=>&$ageNumber){
+    $ageNumber['age']=$ageList[$person];
 }
-unset($y);
+unset($person);
 
 var_dump($personalInfos);
 
@@ -78,13 +76,13 @@ class Student
 
     public function attend()
     {
-        echo '授業に出席しました。';
+        echo "授業に出席しました。\n";
     }
 }
 
 $stu120= new Student(120, '山田');
 
-echo '学籍番号'.$stu120->studentId.'番の生徒は'.$stu120->studentName.'です。';
+echo '学籍番号'.$stu120->studentId.'番の生徒は'.$stu120->studentName."です。\n";
 
 // Q4 オブジェクト-2
 class Student2
@@ -101,7 +99,7 @@ class Student2
 
     public function attend($lecture)
     {
-        echo $this->studentName.'は'.$lecture.'の授業に参加しました。学籍番号：'.$this->studentId;
+        echo $this->studentName.'は'.$lecture.'の授業に参加しました。学籍番号：'.$this->studentId."\n";
     }
 }
 
@@ -114,13 +112,12 @@ date_default_timezone_set("Asia/Tokyo");
 $datetime = new DateTime();
 
 //問題1
-$datetime->modify('-1 month');
-echo $datetime->format('Y-m-d');
+echo $datetime->modify('-1 month')
+              -> format('Y-m-d')."\n";
 
 //問題2
 $date1 = new DateTime();
-$date2 = new DateTime('1992-04-25');
-$interval = $date2->diff($date1);
-echo $interval->format('あの日から%a日経過しました。');
+echo $date2 = (new DateTime('1992-04-25'))->diff($date1)
+                                          ->format('あの日から%a日経過しました。');
 
 ?>

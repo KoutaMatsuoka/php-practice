@@ -1,7 +1,7 @@
 <?php
 // Q1 変数と文字列
 $name = "松岡";
-$newName = "私の名前は「$name.」です。";
+$newName = "私の名前は「$name"."」です。\n";
 
 echo $newName;
 
@@ -16,65 +16,69 @@ var_dump($num/2);
 date_default_timezone_set("Asia/Tokyo");
 
 $today = date("Y年m月d日 H時i分s秒");
-$time = "現在時刻は、 $today. です。";
+$time = "現在時刻は、 $today"." です。\n";
 
 echo $time;
 
 // Q4 条件分岐-1 if文
 $device = "Linux";
 
-if ($device === "Windows") {
-    echo "使用OSは、windowsです。";
-}if ($device === "mac") {
-    echo "使用OSは、macです。";
-}else {
-    echo "どちらでもありません。";
-}
+if ($device === "windows" || $device === "mac") {echo "使用OSは、$device"."です。\n";}else {echo "どちらでもありません。\n";}
 
 // Q5 条件分岐-2 三項演算子
 $age = 20;
-$message = ($age > 18) ? "成人です。" :" 未成年です。";
+$message = ($age > 18) ? "成人です。\n" :" 未成年です。\n";
 
 echo $message;
 
 // Q6 配列
 $kanto = ["東京都" , "神奈川県" , "埼玉県" , "千葉県" , "茨城県" , "栃木県" , "群馬県"];
 
-echo "$kanto[2]と$kanto[3]は関東地方の都道府県です。";
+echo "$kanto[2]と$kanto[3]は関東地方の都道府県です。\n";
 
 // Q7 連想配列-1
 $kanto2 = ["東京都" => "新宿区" , "神奈川県" => "横浜市" , "埼玉県" => "さいたま市" , "千葉県" => "千葉市" , "茨城県" => "水戸市" , "栃木県" => "宇都宮市" , "群馬県" => "前橋市"];
 
 foreach ($kanto2 as $capital) {
-    echo "$capital. \n";
+    echo $capital. "\n";
 }
 
 // Q8 連想配列-2
-$i = 0;
 foreach ($kanto2 as $prefecture => $capital) {
-    if($i < 2){
-        $i++;
+    if($prefecture !== "埼玉県"){
         continue;
     }
-    echo "$prefecture.の県庁所在地は、$capital.です。";
+    echo $prefecture."の県庁所在地は、$capital"."です。\n";
     break;
 }
 
 // Q9 連想配列-3
 $capitalArea = [ "東京都" => "新宿区" , "神奈川県" => "横浜市" , "埼玉県" => "さいたま市" , "千葉県" => "千葉市" , "茨城県" => "水戸市" , "栃木県" => "宇都宮市" , "群馬県" => "前橋市" , "静岡県" => "静岡市" , "山梨県" => "甲府市" ];
-$i = 0;
+
 foreach ($capitalArea as $prefecture => $capital) {
-    if($i < 7){
-        $i++;
-        echo "$prefecture.の県庁所在地は、$capital.です。\n";
-    }else{
-    echo "$prefecture.は関東地方ではありません。\n";}
+    switch ($prefecture){
+        case "東京都":echo $prefecture."の県庁所在地は、$capital"."です。\n";
+        break;
+        case "神奈川県":echo $prefecture."の県庁所在地は、$capital"."です。\n";
+        break;
+        case "埼玉県":echo $prefecture."の県庁所在地は、$capital"."です。\n";
+        break;
+        case "千葉県":echo $prefecture."の県庁所在地は、$capital"."です。\n";
+        break;
+        case "茨城県":echo $prefecture."の県庁所在地は、$capital"."です。\n";
+        break;
+        case "栃木県":echo $prefecture."の県庁所在地は、$capital"."です。\n";
+        break;
+        case "群馬県":echo $prefecture."の県庁所在地は、$capital"."です。\n";
+        break;
+        default:echo $prefecture."は関東地方ではありません。\n";
+    }
 }
 
 // Q10 関数-1
 function hello($name)
 {
-    echo "$name.さん、こんにちは。\n";
+    echo $name."さん、こんにちは。\n";
 }
 
 hello("金谷");
@@ -84,16 +88,16 @@ hello("安藤");
 function calcTaxInPrice($price)
 {
     $taxInPrice = $price*1.1;
-    echo "$price.円の商品の税込価格は$taxInPrice.円です。";
+    echo $price."円の商品の税込価格は$taxInPrice"."円です。\n";
 }
 calcTaxInPrice(1000);
 
 // Q12 関数とif文
 function distinguishNum($number){
     if($number % 2 == 0){
-        echo "$number.は偶数です。\n";
+        echo $number."は偶数です。\n";
     }else{
-        echo "$number.は奇数です。\n";
+        echo $number."は奇数です。\n";
     }
 }
 distinguishNum(11);
