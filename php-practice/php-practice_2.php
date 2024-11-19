@@ -39,7 +39,7 @@ $personalInfos = [
 var_dump($personalInfos);
 
 //問題1
-echo $personalInfos[1]['name'].'の電話番号は'.$personalInfos[1]['tel']."です。\n";
+echo $personalInfos[1]['name'] . 'の電話番号は' . $personalInfos[1]['tel'] . "です。\n";
 
 //問題2
 $count = 0;
@@ -67,8 +67,8 @@ class Student
 
     public function __construct($id, $name)
     {
-        $this->studentId = $id;
-        $this->studentName = $name;
+        $this -> studentId = $id;
+        $this -> studentName = $name;
     }
 
     public function attend()
@@ -90,13 +90,13 @@ class Student2
 
     public function __construct($id, $name)
     {
-        $this->studentId = $id;
-        $this->studentName = $name;
+        $this -> studentId = $id;
+        $this -> studentName = $name;
     }
 
     public function attend($lecture)
     {
-        echo $this->studentName.'は'.$lecture.'の授業に参加しました。学籍番号：'.$this->studentId."\n";
+        echo $this -> studentName.'は' . $lecture . 'の授業に参加しました。学籍番号：' . $this->studentId . "\n";
     }
 }
 
