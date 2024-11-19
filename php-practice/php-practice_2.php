@@ -3,17 +3,13 @@
 function tic_tac($count = 0){
     for ($count = 0; $count <= 100; $count++) {
         if ($count === 0) {echo "1から100までのカウントを開始します\n\n";
-            continue;
         }elseif ($count % 4 === 0 && $count % 5 === 0) {
             echo "tic-tac\n";
-            continue;
         }elseif ($count % 4 === 0) {
             echo "tic\n";
-            continue;
         }elseif ($count % 5 === 0) {
             echo "tac\n";
-            continue;
-        }{
+        }else{
             echo $count. "\n";
         }
     }
