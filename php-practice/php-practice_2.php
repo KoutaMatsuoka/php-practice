@@ -13,8 +13,9 @@ function tic_tac($count = 0){
         }elseif ($count % 5 === 0) {
             echo "tac\n";
             continue;
+        }{
+            echo $count. "\n";
         }
-        echo $count. "\n";
     }
 }
 
@@ -49,14 +50,14 @@ $count = 0;
 
 foreach($personalInfos as $person){
     $count = $count + 1;
-    echo $count.'番目の'.$person['name'].'のメールアドレスは'.$person['mail'].'で、電話番号は'.$person['tel']."です。\n";
+    echo $count . '番目の' . $person['name'] . 'のメールアドレスは' . $person['mail'] . 'で、電話番号は' .$person['tel'] . "です。\n";
 }
 unset($person);
 
 //問題3
 $ageList = [25, 30, 18];
-foreach($personalInfos as $person=>&$ageNumber){
-    $ageNumber['age']=$ageList[$person];
+foreach($personalInfos as $person => &$ageNumber){
+    $ageNumber['age'] = $ageList[$person];
 }
 unset($person);
 
@@ -104,7 +105,7 @@ class Student2
 }
 
 $yamada = new Student2(120, '山田');
-$yamada->attend('PHP');
+$yamada -> attend('PHP');
 
 // Q5 定義済みクラス
 
@@ -112,12 +113,12 @@ date_default_timezone_set("Asia/Tokyo");
 $datetime = new DateTime();
 
 //問題1
-echo $datetime->modify('-1 month')
-              -> format('Y-m-d')."\n";
+echo $datetime -> modify('-1 month')
+               -> format('Y-m-d')."\n";
 
 //問題2
 $date1 = new DateTime();
-echo $date2 = (new DateTime('1992-04-25'))->diff($date1)
-                                          ->format('あの日から%a日経過しました。');
+echo $date2 = (new DateTime('1992-04-25')) -> diff($date1)
+                                           -> format('あの日から%a日経過しました。') . "\n";
 
 ?>
